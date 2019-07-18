@@ -9,6 +9,7 @@ public class Bank {
 		System.out.println("3: Employee Login"); //Not yet implemented, admin should inherit from employee class
 		Scanner input = new Scanner(System.in); //Create scanner object to get user input
 		int choice = input.nextInt(); //Get user choice
+		//call menuselection
 		
 		
 		
