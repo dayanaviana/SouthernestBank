@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 public class Account implements Serializable{ //map each instance to a CustomerID
 	//put id in separate class of hashmap stored in a file, then load that instance into memory
-	//private int id = (username+pswd).hashcode(); create customerID
 	private double balance = 0.00;
 	private boolean jointAccount;
 	
@@ -45,5 +44,11 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	
 	protected void getIsJointAccount(boolean arg) {
 	    System.out.println(jointAccount);
+	}
+	
+	protected void transfer(String user, double amt) {
+	    //Account toAccount = getAccount(user); //TODO implement getAccount
+	    this.withdraw(amt);
+	    //toAccount.deposit(amt); //Waiting on getAccount(user);
 	}
 }

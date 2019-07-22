@@ -16,21 +16,17 @@ public class Driver {
         case 1:
             System.out.println("Username: ");
             String username = input.next();
-            System.out.println("Password: "); //make characters invisible/*
-            String password = input.next();
             System.out.println("Joint account Y/N: ");
             char joint = input.next().charAt(0);
             joint = Character.toUpperCase(joint);
             boolean jointAccount = (joint == 'Y') ? true:false;
             Application app = new Application();
-            app.applicationList(username, password, jointAccount);
+            app.applicationList(username, jointAccount);
             break;
         case 2:
             //TODO implement Customer Login
             System.out.println("Username: ");
             username = input.next();
-            System.out.println("Password: "); //make characters invisible/*
-            password = input.next();
             //Account usrAccount = customerLogin(username, password);
             break;
         case 3:
@@ -38,7 +34,7 @@ public class Driver {
             System.out.println("Username: ");
             username = input.next();
             System.out.println("Password: "); //make characters invisible/*
-            password = input.next();
+            String password = input.next();
             //Employee empAccount = empLogin(username, password);
             break;
         case 4:
@@ -48,6 +44,7 @@ public class Driver {
             System.out.println("Password: "); //make characters invisible/*
             password = input.next();
             Admin adminAccount = AdminLogin.login(username, password);
+            SubMenu.AdminSubMenu(adminAccount);
             break;
         default:
             System.out.println("Invalid option");

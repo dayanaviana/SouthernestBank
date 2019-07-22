@@ -8,6 +8,15 @@ public class Admin extends Employee{
      * maybe have admin approve employee accounts
      */
     
+    protected Account getAccount(String username) {
+        /*
+         * TODO
+         * Load hashmap
+         * return db.get(username);
+         */
+        return null; //only used to prevent ide errors, not for production
+    }
+    
     private void deleteAccount(String hashcode) { //Cancel Account
         //Load hashmap
         //db.remove(hashcode);

@@ -15,14 +15,13 @@ public class Application implements Serializable {
     private static final long serialVersionUID = -4053030731958421013L;
 
     //Only Employee class should be able to approve/deny applications
-    public void applicationList(String username, String pswd, boolean jointAccount) {
+    public void applicationList(String username, boolean jointAccount) {
         //Write to file;
         Account application = new Account();
-        String id = username+pswd.hashCode();
         application.setJointAccount(jointAccount);
         Map<String, Account> db = new HashMap<>();
         //load in map too
-        db.put(id, application); //add id:account into hashmap
+        db.put(username, application); //add id:account into hashmap
         
         
         try {
