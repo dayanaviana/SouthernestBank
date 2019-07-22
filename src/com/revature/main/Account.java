@@ -1,12 +1,17 @@
 package com.revature.main;
+
+import java.io.Serializable;
+
 //import java.math.BigDecimal; //better precision especially in financial app
 
-public class Account { //map each instance to a CustomerID
+public class Account implements Serializable{ //map each instance to a CustomerID
 	//put id in separate class of hashmap stored in a file, then load that instance into memory
 	//private int id = (username+pswd).hashcode(); create customerID
 	private double balance = 0.00;
+	private boolean jointAccount;
 	
-	public void deposit(double depositamt) {
+	//Should probably switch these to interfaces
+	protected void deposit(double depositamt) {
 		if (depositamt > 0) { //Make sure they are not depositing a negative number
 			this.balance += depositamt;
 		}
@@ -15,7 +20,7 @@ public class Account { //map each instance to a CustomerID
 		}
 	}
 	
-	public void withdraw(double withdrawamt) {
+	protected void withdraw(double withdrawamt) {
 		if (withdrawamt < 0) {
 			System.out.println("Invalid amount"); //Make sure number is not negative
 			return; //exit method
@@ -26,9 +31,19 @@ public class Account { //map each instance to a CustomerID
 		else {
 			this.balance -= withdrawamt; //withdraw requested amount
 		}
+		
+	
 	}
 	
-	public void getBalance() {
+	protected void getBalance() {
 		System.out.println(this.balance);
+	}
+	
+	protected void setJointAccount(boolean arg) {
+	    this.jointAccount = arg;
+	}
+	
+	protected void getIsJointAccount(boolean arg) {
+	    System.out.println(jointAccount);
 	}
 }
