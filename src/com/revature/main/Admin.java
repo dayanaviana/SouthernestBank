@@ -8,7 +8,7 @@ public class Admin extends Employee{
      * maybe have admin approve employee accounts
      */
     
-    protected Account getAccount(String username) {
+    public static Account getAccount(String username) { //so customers can use for transfer
         /*
          * TODO
          * Load hashmap
@@ -17,7 +17,7 @@ public class Admin extends Employee{
         return null; //only used to prevent ide errors, not for production
     }
     
-    private void deleteAccount(String hashcode) { //Cancel Account
+    private void deleteAccount(String h) { //Cancel Account
         //Load hashmap
         //db.remove(hashcode);
         //write new hashmap db to file overwriting old file

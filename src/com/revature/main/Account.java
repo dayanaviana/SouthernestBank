@@ -22,10 +22,11 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	protected void withdraw(double withdrawamt) {
 		if (withdrawamt < 0) {
 			System.out.println("Invalid amount"); //Make sure number is not negative
-			return; //exit method
+			System.exit(0); //exit method
 		}
 		else if (withdrawamt > this.balance) {
 			System.out.println("NSF"); //Insufficient funds
+			System.exit(0);
 		}
 		else {
 			this.balance -= withdrawamt; //withdraw requested amount
@@ -47,8 +48,8 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	}
 	
 	protected void transfer(String user, double amt) {
-	    //Account toAccount = getAccount(user); //TODO implement getAccount
+	    Account toAccount = Admin.getAccount(user); //TODO implement getAccount
 	    this.withdraw(amt);
-	    //toAccount.deposit(amt); //Waiting on getAccount(user);
+	    toAccount.deposit(amt); //Waiting on getAccount(user);
 	}
 }
