@@ -27,15 +27,31 @@ public class Driver {
             break;
         case 2:
             //TODO implement Customer Login
+            System.out.println("Username: ");
+            username = input.next();
+            System.out.println("Password: "); //make characters invisible/*
+            password = input.next();
+            //Account usrAccount = customerLogin(username, password);
             break;
         case 3:
             //TODO implement Employee Login & create account
+            System.out.println("Username: ");
+            username = input.next();
+            System.out.println("Password: "); //make characters invisible/*
+            password = input.next();
+            //Employee empAccount = empLogin(username, password);
             break;
         case 4:
             //TODO implement admin login & create admin account
+            System.out.println("Username: ");
+            username = input.next();
+            System.out.println("Password: "); //make characters invisible/*
+            password = input.next();
+            Admin adminAccount = AdminLogin.login(username, password);
             break;
         default:
             System.out.println("Invalid option");
         }
     }
+
 }
