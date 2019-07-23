@@ -48,8 +48,8 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	}
 	
 	protected void transfer(String user, double amt) {
-	    Account toAccount = Admin.getAccount(user); //TODO implement getAccount
+	    Account toAccount = Customers.getCustomerAccount(user);
 	    this.withdraw(amt);
-	    toAccount.deposit(amt); //Waiting on getAccount(user);
+	    toAccount.deposit(amt);
 	}
 }

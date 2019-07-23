@@ -12,11 +12,11 @@ import java.util.Map;
 public class Employee extends Application{
     
     protected void approveApplication() { //this probably shoudn't be public
-         Object appList = Customers.ReadObjectFromFile("appList.txt");
-         HashMap<String, Account> db = (HashMap<String, Account>) Customers.ReadObjectFromFile("accounts.txt");
+         HashMap<String, Account> appList = (HashMap<String, Account>) Customers.ReadObjectFromFile("appList.txt");
+         HashMap<String, Account> db = (HashMap<String, Account>) Customers.ReadObjectFromFile("Accounts.txt");
          String appKey = null;
          
-         for (String str: db.keySet()) {
+         for (String str: appList.keySet()) {
              appKey = str;
              break; //Only need the first one, there should only ever be one
          }
@@ -26,10 +26,11 @@ public class Employee extends Application{
              System.exit(0);
          }
          else {
-             Account acct = db.get(appKey);
+             Account acct = appList.get(appKey);
              db.put(appKey, acct);
              Customers.WriteObjectToFile("Accounts.txt", false, db);
              System.out.println("Account Approved");
+             //System.exit(0);
          }
     }
 }

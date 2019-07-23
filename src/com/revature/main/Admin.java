@@ -1,25 +1,13 @@
 package com.revature.main;
 
+import java.util.HashMap;
+
 public class Admin extends Employee{
-    /*
-     * loadAccount map here
-     * then admin has all methods for each account
-     * 
-     * maybe have admin approve employee accounts
-     */
-    
-    public static Account getAccount(String username) { //so customers can use for transfer
-        /*
-         * TODO
-         * Load hashmap
-         * return db.get(username);
-         */
-        return null; //only used to prevent ide errors, not for production
-    }
-    
-    private void deleteAccount(String h) { //Cancel Account
-        //Load hashmap
-        //db.remove(hashcode);
-        //write new hashmap db to file overwriting old file
+
+        protected void deleteAccount(String usr) { //Cancel Account
+            HashMap<String, Account> db = (HashMap<String, Account>) Customers.ReadObjectFromFile("Accounts.txt");
+            db.remove(usr);
+            Customers.WriteObjectToFile("Accounts.txt", false, db);
+            System.out.println("Account " + usr + " deleted.");
     }
 }

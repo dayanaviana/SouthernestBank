@@ -12,7 +12,7 @@ public class Customers {
 	private static final String filepath = "Accounts.txt";
 	private static Map<String, Account> db;
 
-	//Must Instantiate Customer to load file
+	//Must Instantiate Customer to load file into db field
 	public Customers() {
 		super();
 		//load file into HASH-MAP
@@ -36,7 +36,7 @@ public class Customers {
 	}
 	
 	//Return ACCOUNT of a given Customer
-	public Account getCustomerAccount(String name) {
+	public static Account getCustomerAccount(String name) {
 		
 		return db.get(name);
 	}
