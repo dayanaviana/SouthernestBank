@@ -26,6 +26,7 @@ public class SubMenu {
                 break;
             default:
                 System.out.println("Please see teller for assistance");
+                //Save file here
                 System.exit(0);
             }
         }while(choice>0 && choice <4); //As long as they chose a valid option before
@@ -51,6 +52,8 @@ public class SubMenu {
                 System.out.print("Deposit Amount: $");
                 amt = Driver.input.nextDouble();
                 account.deposit(amt);
+                Driver.db.replace(get, account);
+                Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
                 break;
             case 2:
                 System.out.print("Withdrawal Amount");

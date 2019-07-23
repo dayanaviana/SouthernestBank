@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class Customers {
-	private static Map<String, Account> db;
+	private static Map<String, Account> db = (HashMap)ReadObjectFromFile(Driver.ACCOUNTLISTFILE);;
 
-	//Must Instantiate Customer to load file into db field
+	//Must Instantiate Customer to refresh
 	public Customers() {
 		super();
 		//load file into HASH-MAP
@@ -27,6 +27,10 @@ public class Customers {
 
 	public Set<String> getAllCustomers(){
 		return db.keySet();
+	}
+	
+	public static void refreshDB() {
+	    db = (HashMap)ReadObjectFromFile(Driver.ACCOUNTLISTFILE); 
 	}
 	
 	//delete Customer and his account

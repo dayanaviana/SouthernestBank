@@ -1,11 +1,13 @@
 package com.revature.main;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Driver {
     public static Scanner input = new Scanner(System.in);
     public static final String APPLISTFILE = "appList.txt";
     public static final String ACCOUNTLISTFILE = "Accounts.txt";
+    public static HashMap<String, Account> db = (HashMap<String, Account>) Customers.ReadObjectFromFile(ACCOUNTLISTFILE); 
     
     public static void main(String[] args) {
         System.out.println("1: Apply");
@@ -50,8 +52,11 @@ public class Driver {
             SubMenu.AdminSubMenu(adminAccount);
             break;
         default:
+            //db.replace(username, Account); //FIXME
+            Customers.WriteObjectToFile(ACCOUNTLISTFILE, false, db);
             System.out.println("Invalid option");
         }
+        Customers.WriteObjectToFile(ACCOUNTLISTFILE, false, db);
     }
 
 }
