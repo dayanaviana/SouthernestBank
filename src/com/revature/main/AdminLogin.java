@@ -3,7 +3,7 @@ package com.revature.main;
 public class AdminLogin {
     public static Admin login(String username, String pswd) {
         if (username.equals("Ben") && pswd.equals("****")) {
-            System.out.println("Access Granted comment me out");
+            System.out.println("Access Granted");
             return new Admin();
         }
         else {
