@@ -33,6 +33,13 @@ public class Application implements Serializable {
          } catch (IOException e) {
             e.printStackTrace();
          }
+        
+        /*
+         * Call approveApplication() here 
+         * so there is only ever 1 application in the file
+         */
+        
+        
     }
 }
     

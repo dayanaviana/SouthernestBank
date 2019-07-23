@@ -8,7 +8,8 @@ public class AdminLogin {
         }
         else {
             System.out.println("Access Denied");
-            return null;
+            System.exit(0);
+            return null; //used to suppress IDE error
         }
     }
 }

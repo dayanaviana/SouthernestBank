@@ -1,16 +1,18 @@
 package com.revature.main;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Customers {
-	private static final String filepath = "appList.txt";
+	private static final String filepath = "Accounts.txt";
 	private static Map<String, Account> db;
 
-	//Must Instaciate Customer to load file
+	//Must Instantiate Customer to load file
 	public Customers() {
 		super();
 		//load file into HASH-MAP
@@ -18,6 +20,7 @@ public class Customers {
 	}
 	
 	//To Test functionalities
+	//Move to tests package
 	public static void main(String[] args) {
 		Customers cu = new Customers();
 		System.out.println(cu.getAllCustomers().toString());
@@ -61,4 +64,22 @@ public class Customers {
 			return null;
 		}
 	}
+	
+	public static void WriteObjectToFile(String filepath, boolean append, Object obj) {
+
+        try {
+            FileOutputStream fileStream = new FileOutputStream(filepath, append);
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+
+            objectStream.writeObject(obj);
+
+            // The Object has been read from the file"
+            objectStream.close();
+            return;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return;
+        }
+    }
 }

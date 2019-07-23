@@ -19,7 +19,7 @@ public class Employee extends Application{
         FileInputStream fin1 = null; //appList
         FileOutputStream fout = null;
         try {
-            fin1 = new FileInputStream("Accounts.txt");
+            fin1 = new FileInputStream("appList.txt");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -30,7 +30,10 @@ public class Employee extends Application{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //hashcode:AccountObject
+        
+        
+
+        
         try {
             fout = new FileOutputStream("Accounts.txt");
         } catch (FileNotFoundException e) {
@@ -51,13 +54,15 @@ public class Employee extends Application{
          * sin.close();
          * sout.close();
         */
-        fin1 = null;
+        
         /*
          * load in Accounts map
          * if key exists, deny //sysout denied
          * else approve and add to Accounts map
          * & rewrite (overwriting) accounts map to file
          */
+        
+        
         
     }
 }
