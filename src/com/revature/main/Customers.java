@@ -9,14 +9,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class Customers {
-	private static final String filepath = "Accounts.txt";
 	private static Map<String, Account> db;
 
 	//Must Instantiate Customer to load file into db field
 	public Customers() {
 		super();
 		//load file into HASH-MAP
-		db = (HashMap)ReadObjectFromFile(filepath);
+		db = (HashMap)ReadObjectFromFile(Driver.ACCOUNTLISTFILE);
 	}
 	
 	//To Test functionalities

@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Driver {
     public static Scanner input = new Scanner(System.in);
+    public static final String APPLISTFILE = "appList.txt";
+    public static final String ACCOUNTLISTFILE = "Accounts.txt";
+    
     public static void main(String[] args) {
         System.out.println("1: Apply");
         System.out.println("2: Customer Login");

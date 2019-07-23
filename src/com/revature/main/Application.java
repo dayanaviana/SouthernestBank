@@ -24,7 +24,7 @@ public class Application implements Serializable {
         db.put(username, application); //add id:account into hashmap
         
         //Write applicationList to file
-        Customers.WriteObjectToFile("appList.txt", false, db);
+        Customers.WriteObjectToFile(Driver.APPLISTFILE, false, db);
         
         //Call approveApplication so it's automatic
         Employee emp = new Employee();
