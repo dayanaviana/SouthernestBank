@@ -23,23 +23,12 @@ public class Application implements Serializable {
         //load in map too
         db.put(username, application); //add id:account into hashmap
         
+        //Write applicationList to file
+        Customers.WriteObjectToFile("appList.txt", false, db);
         
-        try {
-            FileOutputStream fout = new FileOutputStream("appList.txt");
-            ObjectOutputStream sout = new ObjectOutputStream(fout);
-            sout.writeObject(db);
-            sout.close();
-            fout.close();
-         } catch (IOException e) {
-            e.printStackTrace();
-         }
-        
-        /*
-         * Call approveApplication() here 
-         * so there is only ever 1 application in the file
-         */
-        
-        
+        //Call approveApplication so it's automatic
+        Employee emp = new Employee();
+        emp.approveApplication();
     }
 }
     
