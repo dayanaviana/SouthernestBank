@@ -32,8 +32,11 @@ public class SubMenu {
     }
     
     public static void AdminSubMenu(Admin admin) {
-        System.out.print("Username of Account: ");
-        Account account = Customers.getCustomerAccount(Driver.input.nextLine());
+        Customers c = new Customers();
+        System.out.println("Customer username of Account");
+        String get = Driver.input.nextLine(); //Consume /n of previous sysout
+        get = Driver.input.nextLine();
+        Account account = c.getCustomerAccount(get);
         System.out.println("1: Deposit");
         System.out.println("2: Withdraw");
         System.out.println("3: View Balance");
@@ -60,7 +63,7 @@ public class SubMenu {
             case 4:
                 //TODO
                 System.out.println("Username of Account you are transferring to");
-                Account toAccount = Customers.getCustomerAccount(Driver.input.nextLine());
+                Account toAccount = c.getCustomerAccount(Driver.input.nextLine());
                 break;
             case 5:
                 admin.approveApplication();
