@@ -13,23 +13,29 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	protected void deposit(double depositamt) {
 		if (depositamt > 0) { //Make sure they are not depositing a negative number
 			this.balance += depositamt;
+			Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 		}
 		else {
+		    Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 			System.out.println("Invalid Amount");
+			System.exit(0);
 		}
 	}
 	
 	protected void withdraw(double withdrawamt) {
 		if (withdrawamt < 0) {
 			System.out.println("Invalid amount"); //Make sure number is not negative
+			Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 			System.exit(0); //exit method
 		}
 		else if (withdrawamt > this.balance) {
 			System.out.println("NSF"); //Insufficient funds
+			Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 			System.exit(0);
 		}
 		else {
 			this.balance -= withdrawamt; //withdraw requested amount
+			Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 		}
 		
 	
@@ -41,6 +47,7 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	
 	protected void setJointAccount(boolean arg) {
 	    this.jointAccount = arg;
+	    Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 	}
 	
 	protected void getIsJointAccount(boolean arg) {
@@ -51,5 +58,6 @@ public class Account implements Serializable{ //map each instance to a CustomerI
 	    Account toAccount = Customers.getCustomerAccount(user);
 	    this.withdraw(amt);
 	    toAccount.deposit(amt);
+	    Customers.WriteObjectToFile(Driver.ACCOUNTLISTFILE, false, Driver.db);
 	}
 }
